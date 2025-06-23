@@ -1,0 +1,51 @@
+.table
+    table
+        min-width: 100%
+
+    .loading
+        width: 100%
+        
+        img
+            width: 22px
+            margin: auto
+            display: block
+            animation: rotate 0.8s linear forwards infinite
+
+    @keyframes rotate
+        from
+            transform: rotate(0deg)
+        to
+            transform: rotate(360deg)
+
+    th, td
+        text-align: left
+
+    .table-row
+        display: table-row
+
+    .paginator
+        display: flex
+        flex-direction: row
+        align-items: center
+        gap: 10px
+        width: fit-content
+        margin: 10px auto 0
+
+        span
+            width: 36px
+            height: 36px
+            border-radius: 50%
+            cursor: pointer
+            transition: 0.2s
+            font-size: 14px
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+
+            &.selected
+                font-weight: bold
+                background: #10509981
+
+            &:hover
+                background: #1050995e

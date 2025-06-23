@@ -1,0 +1,125 @@
+header.desk
+    width: 100%
+    position: fixed
+    top: 0
+    left: 0
+    background: white
+    height: 80px
+    display: flex
+    flex-direction: column
+    align-items: center
+    z-index: 1000
+    background: #105099
+
+    *
+        color: white
+
+    .content
+        display: flex
+        flex-direction: row
+        align-items: center
+        justify-content: space-between
+        height: 100%
+
+        .logo
+            width: 100px
+
+    .left-content
+        flex: 1
+        height: 100%
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        align-items: center
+        gap: 15px
+
+    .right-content
+        display: flex
+        flex-direction: row
+        gap: 15px
+
+    .user-menu-container
+        position: relative
+
+        .user-data
+            display: flex
+            flex-direction: row
+            align-items: center
+            gap: 8px
+            padding: 10px 20px
+            border-radius: 25px
+            background: #105099
+            cursor: pointer
+
+            *
+                color: white
+
+            &.opened
+                border-radius: 15px 15px 0 0
+
+                .arrow
+                    transform: rotate(-180deg)
+
+            .user-info
+                width: 150px
+
+            h4
+                font-size: 12px
+                font-weight: normal
+
+            p
+                font-size: 10px
+
+            .profile-picture-container
+                width: 30px
+                height: 30px
+                border-radius: 50%
+                overflow: hidden
+                display: flex
+                align-items: center
+                justify-content: center
+                background: white
+                flex-shrink: 0
+                flex-grow: 0
+
+            .arrow
+                width: 15px
+                transition: 0.5s
+
+        .user-menu
+            position: absolute
+            top: 100%
+            left: 0
+            right: 0
+            border-radius: 0 0 15px 15px
+            background: #105099
+            overflow: hidden
+
+            *
+                color: white
+
+            ul
+                width: 100%
+                display: flex
+                flex-direction: column
+                overflow: hidden
+
+                li
+                    width: 100%
+                    padding: 10px
+                    cursor: pointer
+                    transition: 0.3s
+                    &:hover
+                        background: #0a3566
+
+
+    .unlogged-links
+        display: flex
+        flex-direction: row
+        gap: 15px
+
+        li
+            font-weight: bold
+            cursor: pointer
+
+            

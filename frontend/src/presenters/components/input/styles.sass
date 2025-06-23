@@ -1,0 +1,55 @@
+.input-container
+    width: 100%
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    gap: 5px
+
+    &.with-icon
+        input, textarea
+            padding: 10px 15px 10px 40px
+
+    &.password
+        input
+            padding-right: 40px
+
+    .input
+        width: 100%
+        position: relative
+
+        .icon
+            position: absolute
+            top: 50%
+            left: 15px
+            transform: translateY(-50%)
+            width: 20px
+            z-index: 10
+
+            &.password-icon
+                left: inherit
+                right: 15px
+                cursor: pointer
+
+    input, textarea
+        width: 100%
+        color: black
+        padding: 10px 15px
+        border-radius: 20px
+        font-size: 14px
+        color: black !important
+
+        &:read-only
+            opacity: 0.6
+
+    textarea
+        height: 180px
+
+.react-datepicker
+    *
+        color: black !important
+
+    button
+        min-width: inherit
+
+.react-datepicker-popper
+    z-index: 1000 !important
