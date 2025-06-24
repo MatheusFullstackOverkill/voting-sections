@@ -1,3 +1,7 @@
+-- +goose Up
+-- +goose StatementBegin
+SELECT 'up SQL query';
+-- +goose StatementEnd
 CREATE TABLE IF NOT EXISTS "user" (
     user_id SERIAL PRIMARY KEY,
     full_name VARCHAR(150) NOT NULL,
@@ -26,3 +30,11 @@ CREATE TABLE IF NOT EXISTS vote (
     approved BOOLEAN,
     created_at TIMESTAMP DEFAULT NOW()
 );
+
+-- +goose Down
+-- +goose StatementBegin
+SELECT 'down SQL query';
+-- +goose StatementEnd
+DROP TABLE IF EXISTS "user";
+DROP TABLE IF EXISTS "topic";
+DROP TABLE IF EXISTS "vote";

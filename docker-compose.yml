@@ -19,13 +19,19 @@ services:
       - pgdata:/var/lib/postgresql/data
   backend:
     container_name: backend
-    image: francescoxx/go-app:1.0.0
     build: ./backend
     ports:
       - "5000:5000"
+    environment:
+      DATABASE_URL: "host=database user=postgres password=doctorwho3210 dbname=voting_sections port=5432"
+      PORT: 5000
+      GOOSE_DRIVER: postgres
+      GOOSE_DBSTRING: postgresql://postgres:doctorwho3210@database:5432/voting_sections
+      GOOSE_MIGRATION_DIR: ./migrations
+      GOOSE_TABLE: public.migrations
     depends_on:
       - database
-    command: go run .
+    command: sh -c "goose up && go run . "
 
 volumes:  
   pgdata: {}

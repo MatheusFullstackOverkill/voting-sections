@@ -1,8 +1,6 @@
 package init
 
 import (
-	"os"
-
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -16,11 +14,4 @@ func InitDB() {
 	if err != nil {
 		panic("Failed to connect to the database")
 	}
-
-	c, ioErr := os.ReadFile("migrations/1_setup_up.sql")
-	if ioErr != nil {
-		panic("Failed to read migrations file")
-	}
-	sql := string(c)
-	DB.Exec(sql)
 }
