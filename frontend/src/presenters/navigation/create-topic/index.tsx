@@ -77,7 +77,7 @@ export const CreateTopic = () => {
                     onChange={e => setForm({ ...form, description: e })}/>
                     <ErrorMessage errors={formErrors['description']} />
                 </div>
-                <SubmitBtn className='secondary' text='Confirmar' loadingText='Enviando...' loading={loading} onSubmit={onSubmit} />
+                <SubmitBtn className='primary' text='Confirmar' loadingText='Enviando...' loading={loading} onSubmit={onSubmit} />
             </div>
             <ResponseModal
             render={responseData}

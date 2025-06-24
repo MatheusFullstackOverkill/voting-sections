@@ -49,7 +49,7 @@ export const Topics = () => {
         <div className='content'>
           <div className='page-header'>
             <h2>Tópicos</h2>
-            {userdata.user_id && <Link to={'create'}><button>Criar Tópico</button></Link>}
+            {userdata.user_id && <Link to={'create'}><button className='primary'>Criar Tópico</button></Link>}
           </div>
           <Table
           data={topics.data}
@@ -79,7 +79,7 @@ export const Topics = () => {
                   </td>
                   <td>
                     <Link to={topic.topic_id+''}>
-                      {moment.utc(topic.created_at).format('DD/MM/YYYY HH:mm:ss')}
+                      {moment(topic.created_at).format('DD/MM/YYYY HH:mm:ss')}
                     </Link>
                   </td>
                   <td>

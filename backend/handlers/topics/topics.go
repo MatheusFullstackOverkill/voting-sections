@@ -64,10 +64,9 @@ func RetriveTopic(c *fiber.Ctx) error {
 	status := "not_started"
 
 	if topic.SessionStartedAt != nil {
-		loc, _ := time.LoadLocation("America/Sao_Paulo")
-		currentTime := time.Now().In(loc).UTC()
+		currentTime := time.Now().UTC()
 
-		sessionClosingTime := topic.SessionStartedAt.Add(time.Minute * time.Duration(*topic.DurationMinutes)).In(loc).UTC()
+		sessionClosingTime := topic.SessionStartedAt.Add(time.Minute * time.Duration(*topic.DurationMinutes)).UTC()
 
 		if currentTime.After(sessionClosingTime) {
 			status = "finished"
@@ -97,10 +96,9 @@ func ListTopics(c *fiber.Ctx) error {
 		status := "not_started"
 
 		if topic.SessionStartedAt != nil {
-			loc, _ := time.LoadLocation("America/Sao_Paulo")
-			currentTime := time.Now().In(loc).UTC()
+			currentTime := time.Now().UTC()
 
-			sessionClosingTime := topic.SessionStartedAt.Add(time.Minute * time.Duration(*topic.DurationMinutes)).In(loc).UTC()
+			sessionClosingTime := topic.SessionStartedAt.Add(time.Minute * time.Duration(*topic.DurationMinutes)).UTC()
 
 			if currentTime.After(sessionClosingTime) {
 				status = "finished"
@@ -133,10 +131,9 @@ func CreateTopicVote(c *fiber.Ctx) error {
 		return c.Status(400).JSON(map[string]string{"error": "topic session not started yet"})
 	}
 
-	loc, _ := time.LoadLocation("America/Sao_Paulo")
-	currentTime := time.Now().In(loc).UTC()
+	currentTime := time.Now().UTC()
 
-	sessionClosingTime := topic.SessionStartedAt.Add(time.Minute * time.Duration(*topic.DurationMinutes)).In(loc).UTC()
+	sessionClosingTime := topic.SessionStartedAt.Add(time.Minute * time.Duration(*topic.DurationMinutes)).UTC()
 
 	if currentTime.After(sessionClosingTime) {
 		return c.Status(400).JSON(map[string]string{"error": "topic session already closed"})

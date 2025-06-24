@@ -164,7 +164,7 @@ export const Topic = () => {
                   type='number'
                   onChange={e => setSessionForm({ ...sessionForm, duration_minutes: parseInt(e) })}/>
                   <ErrorMessage errors={formErrors['duration_minutes']} />
-                  <SubmitBtn className='secondary' text='Confirmar' loadingText='Enviando...' loading={loading} onSubmit={onStartTopicSession} />
+                  <SubmitBtn className='primary' text='Confirmar' loadingText='Enviando...' loading={loading} onSubmit={onStartTopicSession} />
                 </div>
               }
               {
@@ -177,7 +177,7 @@ export const Topic = () => {
                     <button className={!voteForm.approved ? 'selected' : ''} onClick={() => setVoteForm({ approved: false })}>Não</button>
                   </div>
                   <ErrorMessage errors={formErrors['approved']} />
-                  <SubmitBtn className='secondary' text='Confirmar' loadingText='Enviando...' loading={loading} onSubmit={onVoteOnTopic} />
+                  <SubmitBtn className='primary' text='Confirmar' loadingText='Enviando...' loading={loading} onSubmit={onVoteOnTopic} />
                 </div>
               }
               {

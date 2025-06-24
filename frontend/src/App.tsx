@@ -35,21 +35,23 @@ function App() {
   }, [location])
 
   const validateLogin = async () => {
-    const parsedJWT = parseJwt(localStorage.getItem('auth_token') + '');
+    try {
+      const parsedJWT = parseJwt(localStorage.getItem('auth_token') + '');
 
-    if (!parsedJWT) {
-      onLogout();
+      if (!parsedJWT) {
+        onLogout();
 
-      return;
-    };
+        return;
+      };
 
-    dispatch(setToken({
-      auth_token: localStorage.getItem('auth_token')
-    }));
+      dispatch(setToken({
+        auth_token: localStorage.getItem('auth_token')
+      }));
 
-    const userdata = await retrieveUser(parsedJWT.user_id);
+      const userdata = await retrieveUser(parsedJWT.user_id);
 
-    dispatch(setUser(userdata));
+      dispatch(setUser(userdata));
+    } catch (error) {}
   }
 
   return (
