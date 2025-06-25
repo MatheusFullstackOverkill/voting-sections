@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-// import moment from 'moment'
+import { useSelector } from 'react-redux'
+import moment from 'moment'
 import { ListResponse } from 'src/insfrastructure/services/utils'
 import { listTopics, Topic } from 'src/insfrastructure/services/topics'
+import { User } from 'src/insfrastructure/services/users'
 import Table from 'src/presenters/components/table'
 import './styles.sass'
-import { useSelector } from 'react-redux'
-import { User } from 'src/insfrastructure/services/users'
-var moment = require('moment-timezone')
 
 export const Topics = () => {
   const userdata = useSelector((state: any) => state.user.userdata) as User
@@ -49,7 +48,7 @@ export const Topics = () => {
         <div className='content'>
           <div className='page-header'>
             <h2>Tópicos</h2>
-            {userdata.user_id && <Link to={'create'}><button>Criar Tópico</button></Link>}
+            {userdata.user_id && <Link to={'create'}><button className='primary'>Criar Tópico</button></Link>}
           </div>
           <Table
           data={topics.data}
@@ -79,7 +78,7 @@ export const Topics = () => {
                   </td>
                   <td>
                     <Link to={topic.topic_id+''}>
-                      {moment.utc(topic.created_at).format('DD/MM/YYYY HH:mm:ss')}
+                      {moment(topic.created_at).format('DD/MM/YYYY HH:mm:ss')}
                     </Link>
                   </td>
                   <td>

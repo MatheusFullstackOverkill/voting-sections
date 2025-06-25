@@ -3,7 +3,6 @@ package topics_repo
 import (
 	config "backend/init"
 	"backend/interfaces"
-	"fmt"
 )
 
 func CreateTopic(data *interfaces.Topic) interfaces.Topic {
@@ -76,8 +75,6 @@ func ListTopics(listParams *interfaces.ListParams) []interfaces.Topic {
 	`
 
 	config.DB.Raw(query, listParams).Scan(&topics)
-
-	fmt.Println(topics)
 
 	return topics
 }

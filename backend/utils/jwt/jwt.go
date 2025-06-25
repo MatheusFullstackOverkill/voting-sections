@@ -18,7 +18,6 @@ func CreateToken(userID int) (string, error) {
 
 	tokenString, err := token.SignedString(secretKey)
 	if err != nil {
-		fmt.Println(err.Error())
 		return "", err
 	}
 

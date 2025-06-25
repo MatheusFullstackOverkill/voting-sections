@@ -11,14 +11,11 @@
             display: block
             animation: rotate 0.8s linear forwards infinite
 
-    @keyframes rotate
-        from
-            transform: rotate(0deg)
-        to
-            transform: rotate(360deg)
-
     th, td
         text-align: left
+        a
+            display: block
+            width: 100%
 
     .table-row
         display: table-row
@@ -49,3 +46,9 @@
 
             &:hover
                 background: #1050995e
+
+    @keyframes rotate
+        from
+            transform: rotate(0deg)
+        to
+            transform: rotate(360deg)
