@@ -17,6 +17,8 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: "exit 0"
   backend:
     container_name: backend
     build: ./backend
@@ -30,7 +32,9 @@ services:
       GOOSE_MIGRATION_DIR: ./migrations
       GOOSE_TABLE: public.migrations
     depends_on:
-      - database
+      database:
+        condition: service_healthy
+    restart: on-failure
     command: sh -c "goose up && go run . "
 
 volumes:  
