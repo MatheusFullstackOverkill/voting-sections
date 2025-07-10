@@ -1,5 +1,4 @@
 run_api:
-	goose up
 	go run .
 
 generate_keys:

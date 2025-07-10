@@ -30,7 +30,6 @@ func Setup() {
 	config.App.Post("/api/login", auth.Login)
 	config.App.Post("/api/users", users.CreateUser)
 	config.App.Get("/api/users/:user_id", users.RetriveUser)
-	config.App.Put("/api/users/:user_id", users.UpdateUser)
 	config.App.Get("/api/topics", topics.ListTopics)
 	config.App.Post("/api/topics", topics.CreateTopic)
 	config.App.Post("/api/topics/:topic_id/session", topics.UpdateTopic)

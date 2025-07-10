@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "49412a37-18e7-4c74-affe-e49011790bb6",
+		"name": "Voting Sections",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12444341"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/users/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"Matheus Gonçalves de Oliveira\",\n    \"email\": \"admin@gmail.com\",\n    \"cpf\": \"000.000.000-00\",\n    \"password\": \"INCkgZnA4tI+hvXb8yBleBbmgnMmVHmRrVMZRbAgVFpBQDQAo5zZcTUYdnSQjVNhcHVevgF10DJsW8ZKcGA9fNd+XpeycxLZgCOshfXCxY1H0h3w+1qJMRmXquag1uAVaaPgkRpZJyyxmeetDgDjPWkgJw0XKtH1c3UxVy5lKX2XQbaili05RS/4xojues6mjhYEF6WnhlYU3HMDpvQLwqCoQAxkJSL27IDD9hzotB8jkoXdeW9DrXMp6PGRL2d/j8IDlqgACJ/oTWp1bFaKW8H/fNxO5EJPErvJhfLB6cZoBZ4fCKlNnifue8mbBjlYZ+kzvzAe6JLTMRQJx1ji0JTBlj61/iQr3pqLucPnGwnAMwuUGxcbIMRYI0vYtYKujoF0WBxeZkkZaG2k3+9KKrKbNSZ9fJVvwbKF5MYJ95M2X1pVfYvDbKjVbqcHdB/4mUnU1Tnqj8Zji4Nwd/TAoJV4jS/L2GtJGi9Wuzv/llvf9pWziG5falgvM4/Pm/YliFq5gUgS6lYo71jaYUMUt6EZEeRFOrFZ3ar+Uz5dSjv46bm/crw7qEmplYxMeEQm6xCjteeoQO6whDdUjSKwdcVHkeQ5vaUc2X3k3GjK2JKW+LxkHgiuWUoCTA2t7jE+CkELUCHdvNELyuFQa3wCOF/AqyaoXN4yu33pGxLIcZ4=\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Topics",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/topics?limit=10&offset=0",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"topics"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/topics/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"topics",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retrieve Results",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/topics/1/result",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"topics",
+								"1",
+								"result"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Vote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"approved\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/topics/1/vote",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"topics",
+								"1",
+								"vote"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Iniciate Session",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"status\": \"started\",\n    \"duration_minutes\": 5\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/topics/1/session",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"topics",
+								"1",
+								"session"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"topic\",\n    \"description\": \"description\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/topics",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"topics"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@gmail.com\",\n    \"password\": \"INCkgZnA4tI+hvXb8yBleBbmgnMmVHmRrVMZRbAgVFpBQDQAo5zZcTUYdnSQjVNhcHVevgF10DJsW8ZKcGA9fNd+XpeycxLZgCOshfXCxY1H0h3w+1qJMRmXquag1uAVaaPgkRpZJyyxmeetDgDjPWkgJw0XKtH1c3UxVy5lKX2XQbaili05RS/4xojues6mjhYEF6WnhlYU3HMDpvQLwqCoQAxkJSL27IDD9hzotB8jkoXdeW9DrXMp6PGRL2d/j8IDlqgACJ/oTWp1bFaKW8H/fNxO5EJPErvJhfLB6cZoBZ4fCKlNnifue8mbBjlYZ+kzvzAe6JLTMRQJx1ji0JTBlj61/iQr3pqLucPnGwnAMwuUGxcbIMRYI0vYtYKujoF0WBxeZkkZaG2k3+9KKrKbNSZ9fJVvwbKF5MYJ95M2X1pVfYvDbKjVbqcHdB/4mUnU1Tnqj8Zji4Nwd/TAoJV4jS/L2GtJGi9Wuzv/llvf9pWziG5falgvM4/Pm/YliFq5gUgS6lYo71jaYUMUt6EZEeRFOrFZ3ar+Uz5dSjv46bm/crw7qEmplYxMeEQm6xCjteeoQO6whDdUjSKwdcVHkeQ5vaUc2X3k3GjK2JKW+LxkHgiuWUoCTA2t7jE+CkELUCHdvNELyuFQa3wCOF/AqyaoXN4yu33pGxLIcZ4=\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "token",
+			"type": "string"
+		}
+	]
+}

@@ -1,24 +1,28 @@
-version: "3"
+version: "3.8"
 
 services:
   frontend:
+    container_name: voting_sections_frontend
     build: ./frontend
-    container_name: frontend
     ports:
       - '3000:3000'
   database:
-    container_name: database
+    container_name: voting_sections_database
     image: postgres:12
     environment:
-      POSTGRES_PASSWORD: doctorwho3210
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: doctorwho3210
       POSTGRES_DB: voting_sections
-    ports:
-      - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d voting_sections"]
+      start_period: 10s
+      interval: 10s
+      timeout: 10s
+      retries: 5
   backend:
-    container_name: backend
+    container_name: voting_sections_backend
     build: ./backend
     ports:
       - "5000:5000"
@@ -30,7 +34,8 @@ services:
       GOOSE_MIGRATION_DIR: ./migrations
       GOOSE_TABLE: public.migrations
     depends_on:
-      - database
+      database:
+        condition: service_healthy
     command: sh -c "goose up && go run . "
 
 volumes:  

@@ -43,29 +43,6 @@ func CreateUser(c *fiber.Ctx) error {
 	return c.Status(201).JSON(user)
 }
 
-func UpdateUser(c *fiber.Ctx) error {
-	userId, _ := strconv.Atoi(c.Params("user_id"))
-
-	userRequest := new(interfaces.UserRequest)
-
-	err := c.BodyParser(userRequest)
-
-	if err != nil {
-		return err
-	}
-
-	currentUser := users_repo.RetrieveUserByID(userId)
-	if currentUser.UserID == 0 {
-		return c.Status(400).JSON(map[string]string{"error": "user not found"})
-	}
-
-	userRequest.UserID = userId
-
-	user := users_repo.UpdateUser(userRequest)
-
-	return c.JSON(user)
-}
-
 func RetriveUser(c *fiber.Ctx) error {
 	userId, _ := strconv.Atoi(c.Params("user_id"))
 
